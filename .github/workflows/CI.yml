@@ -19,5 +19,7 @@ jobs:
         username: ubuntu
         key: ${{ secrets.ubuntu }}
         script: |
-          cd salah 
+          cd salah/src
+          git pull
+          cd ..
           docker compose up -d --force-recreate --build python
