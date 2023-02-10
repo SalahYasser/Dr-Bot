@@ -1,0 +1,23 @@
+name: CI
+
+on:
+  push:
+    branches: [ "main" ]
+    
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: deploy 
+      uses: appleboy/ssh-action@v0.1.7
+      with:
+        host: 15.185.78.54
+        username: ubuntu
+        key: ${{ secrets.ubuntu }}
+        script: |
+          cd salah 
+          docker compose up -d --force-recreate --build python
