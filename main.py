@@ -4,7 +4,7 @@ import requests
 
 app = Flask(__name__)
 
-PAGE_ACCESS_TOKEN = 'EAAGkB2Vgav0BAH5e9VKjSQJNLpshSEFLV0nhen2DDoS622KRXmXALxGhFCOfanEghU6IqvmreFB0Xk0L5CTZAl2g6TIbPWWEe41bYJqOPXIKfBUogS3CZBZBpIOvZBt7gOxlvyXZC5quz3GURsYWFqhIISrkk16kQ9auGEwMVKjCKWKt04rmN3z8dq1qSmXi4742YnZCDxlwZDZD'
+PAGE_ACCESS_TOKEN = os.environ["access"]
 # This is API key for facebook messenger.
 API = "https://graph.facebook.com/v13.0/me/messages?access_token="+PAGE_ACCESS_TOKEN
 VERIFY_TOKEN = 'test'

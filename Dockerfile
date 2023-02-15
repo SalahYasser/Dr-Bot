@@ -15,6 +15,9 @@ RUN pip install Flask
 RUN pip install requests
 #RUN pip install --upgrade os_sys 
 #RUN pip install os_sys
+ARG access
+ENV access ${access}
+
 
 COPY . .
 
