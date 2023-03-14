@@ -35,7 +35,7 @@ def fbwebhook():
             "id": sender_id
         },
         "message": {
-            "text": "Salah"
+            "text": "Hello, World"
         }
     }
     response = requests.post(API, json=request_body).json()
