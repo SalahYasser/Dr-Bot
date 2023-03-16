@@ -9,10 +9,6 @@ PAGE_ACCESS_TOKEN = os.environ["access"]
 API = "https://graph.facebook.com/v13.0/me/messages?access_token="+PAGE_ACCESS_TOKEN
 VERIFY_TOKEN = 'test'
 
-# @app.route("/ping", methods=['GET'])
-# def ping():
-#     return "pong", 200
-
 @app.route("/", methods=['GET'])
 def fbverify():
     if request.args.get("hub.mode") == "subscribe" and request.args.get("hub.challenge"):
@@ -25,7 +21,7 @@ def fbverify():
 def fbwebhook():
     data = request.get_json()
     print(data)
-        # Read messages from facebook messanger.
+    # Read messages from facebook messanger.
     message = data['entry'][0]['messaging'][0]['message']['text']
     sender_id = data['entry'][0]['messaging'][0]['sender']['id']
     #print(message['text'])
@@ -35,11 +31,21 @@ def fbwebhook():
             "id": sender_id
         },
         "message": {
-            "text": "Hello, World"
+            "text": "Please wait, we will reply to you as soon as possible"
         }
     }
     response = requests.post(API, json=request_body).json()
     return response
+
+
+host = os.environ.get("IP", "0.0.0.0")
+port = int(os.environ.get("PORT", 8000))
+app.run(host=host, port=port)
+
+# @app.route("/ping", methods=['GET'])
+# def ping():
+#     return "pong", 200
+
 
 
 # @app.route("/", methods=['POST'])
@@ -80,9 +86,5 @@ def fbwebhook():
     #
     #
     # return 'ok'
-
-host = os.environ.get("IP", "0.0.0.0")
-port = int(os.environ.get("PORT", 8000))
-app.run(host=host, port=port)
 
 
