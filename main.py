@@ -568,7 +568,7 @@ def send_message(recipient_id, response):
 
 
 if __name__ == "__main__":
-    app.run(debug=True, port=8000)
+    app.run(debug=True, port=3000)
 
 # @app.route("/ping", methods=['GET'])
 # def ping():
