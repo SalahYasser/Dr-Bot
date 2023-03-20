@@ -1,0 +1,6 @@
+gunicorn
+Flask
+requests
+pymessenger
+fbmq
+
