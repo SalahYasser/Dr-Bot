@@ -18,13 +18,14 @@ initialSymptoms = []
 # app = Flask(__name__)
 # ACCESS_TOKEN = 'EAAPIwZBLbqA4BAB1D4QFa4tohSgDlDZAml0EZAzZBbKBEeF31R22PSZCefS8K6pxhTnKySZCmHLvRysLEODIqrkyhagyb3ZCLdU8uOuzUeklfAvyUXBmRgrxZCZBwxCqhEwL8xauEo80XhxmVnAt4SQaC3yBmlkQk4UjKUbsEFxPiQ83fbPYxKgcl'
 # VERIFY_TOKEN = 'hello#100'
+ACCESS_TOKEN = os.environ["access"]
+
 bot=Bot(ACCESS_TOKEN)
 
 app = Flask(__name__)
 
-ACCESS_TOKEN = os.environ["access"]
 # This is API key for facebook messenger.
-API = "https://graph.facebook.com/v13.0/me/messages?access_token="+PAGE_ACCESS_TOKEN
+API = "https://graph.facebook.com/v13.0/me/messages?access_token="+ACCESS_TOKEN
 VERIFY_TOKEN = 'test'
 
 # @app.route("/", methods=['GET'])
