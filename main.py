@@ -1,19 +1,19 @@
 import os,sys
-import random
+# import random
 from flask import Flask, request
-from pymessenger.bot import Bot
-from fbmq import Page
-import datetime
-import sqlite3
-from sqlite3 import Error
-from difflib import SequenceMatcher
-import difflib
-countt = 0
-docID = 0
-patID = 0
-all_ids_have_initial_message = []
-allSymptoms = []
-initialSymptoms = []
+# from pymessenger.bot import Bot
+# from fbmq import Page
+# import datetime
+# import sqlite3
+# from sqlite3 import Error
+# from difflib import SequenceMatcher
+# import difflib
+# countt = 0
+# docID = 0
+# patID = 0
+# all_ids_have_initial_message = []
+# allSymptoms = []
+# initialSymptoms = []
 
 app = Flask(__name__)
 
