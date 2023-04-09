@@ -4,9 +4,9 @@ import requests
 
 app = Flask(__name__)
 
-PAGE_ACCESS_TOKEN = os.environ["access"]
+ACCESS_TOKEN = os.environ["access"]
 # This is API key for facebook messenger.
-API = "https://graph.facebook.com/v13.0/me/messages?access_token="+PAGE_ACCESS_TOKEN
+API = "https://graph.facebook.com/v13.0/me/messages?access_token="+ACCESS_TOKEN
 VERIFY_TOKEN = 'test'
 
 @app.route("/", methods=['GET'])
