@@ -1,6 +1,6 @@
-import os,sys
+# import os,sys
 # import random
-from flask import Flask, request
+# from flask import Flask, request
 # from pymessenger.bot import Bot
 # from fbmq import Page
 # import datetime
@@ -14,13 +14,13 @@ from flask import Flask, request
 # all_ids_have_initial_message = []
 # allSymptoms = []
 # initialSymptoms = []
-
-app = Flask(__name__)
-
-ACCESS_TOKEN = os.environ["access"]
-# This is API key for facebook messenger.
-API = "https://graph.facebook.com/v13.0/me/messages?access_token="+ACCESS_TOKEN
-VERIFY_TOKEN = 'test'
+#
+# app = Flask(__name__)
+#
+# ACCESS_TOKEN = os.environ["access"]
+# # This is API key for facebook messenger.
+# API = "https://graph.facebook.com/v13.0/me/messages?access_token="+ACCESS_TOKEN
+# VERIFY_TOKEN = 'test'
 # bot=Bot(ACCESS_TOKEN)
 
 
@@ -141,38 +141,40 @@ VERIFY_TOKEN = 'test'
 
 
 
-@app.route("/", methods=['GET'])
-def fbverify():
-    if request.args.get("hub.mode") == "subscribe" and request.args.get("hub.challenge"):
-        if not request.args.get("hub.verify_token") == VERIFY_TOKEN:
-            return "Verification token missmatch", 403
-        return request.args['hub.challenge'], 200
-    return "Hello world", 200
-
-@app.route("/", methods=['POST'])
-def fbwebhook():
-    data = request.get_json()
-    print(data)
-    # Read messages from facebook messanger.
-    message = data['entry'][0]['messaging'][0]['message']['text']
-    sender_id = data['entry'][0]['messaging'][0]['sender']['id']
-    #print(message['text'])
-    # if(message['text'] == 'hi'):
-    request_body = {
-        "recipient": {
-            "id": sender_id
-        },
-        "message": {
-            "text": "Please wait, we will reply to you as soon as possible"
-        }
-    }
-    response = requests.post(API, json=request_body).json()
-    return response
 
 
-host = os.environ.get("IP", "0.0.0.0")
-port = int(os.environ.get("PORT", 8000))
-app.run(host=host, port=port)
+# @app.route("/", methods=['GET'])
+# def fbverify():
+#     if request.args.get("hub.mode") == "subscribe" and request.args.get("hub.challenge"):
+#         if not request.args.get("hub.verify_token") == VERIFY_TOKEN:
+#             return "Verification token missmatch", 403
+#         return request.args['hub.challenge'], 200
+#     return "Hello world", 200
+#
+# @app.route("/", methods=['POST'])
+# def fbwebhook():
+#     data = request.get_json()
+#     print(data)
+#     # Read messages from facebook messanger.
+#     message = data['entry'][0]['messaging'][0]['message']['text']
+#     sender_id = data['entry'][0]['messaging'][0]['sender']['id']
+#     #print(message['text'])
+#     # if(message['text'] == 'hi'):
+#     request_body = {
+#         "recipient": {
+#             "id": sender_id
+#         },
+#         "message": {
+#             "text": "Please wait, we will reply to you as soon as possible"
+#         }
+#     }
+#     response = requests.post(API, json=request_body).json()
+#     return response
+#
+#
+# host = os.environ.get("IP", "0.0.0.0")
+# port = int(os.environ.get("PORT", 8000))
+# app.run(host=host, port=port)
 
 
 
@@ -180,7 +182,6 @@ app.run(host=host, port=port)
 # @app.route("/ping", methods=['GET'])
 # def ping():
 #     return "pong", 200
-
 
 
 
@@ -223,3 +224,76 @@ app.run(host=host, port=port)
     #
     #
     # return 'ok'
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+from flask import Flask, request
+import os
+import requests
+
+app = Flask(__name__)
+
+PAGE_ACCESS_TOKEN = os.environ["access"]
+# This is API key for facebook messenger.
+API = "https://graph.facebook.com/v13.0/me/messages?access_token="+PAGE_ACCESS_TOKEN
+VERIFY_TOKEN = 'test'
+
+@app.route("/", methods=['GET'])
+def fbverify():
+    if request.args.get("hub.mode") == "subscribe" and request.args.get("hub.challenge"):
+        if not request.args.get("hub.verify_token") == VERIFY_TOKEN:
+            return "Verification token missmatch", 403
+        return request.args['hub.challenge'], 200
+    return "Hello world", 200
+
+@app.route("/", methods=['POST'])
+def fbwebhook():
+    data = request.get_json()
+    print(data)
+    # Read messages from facebook messanger.
+    message = data['entry'][0]['messaging'][0]['message']['text']
+    sender_id = data['entry'][0]['messaging'][0]['sender']['id']
+    #print(message['text'])
+    # if(message['text'] == 'hi'):
+    request_body = {
+        "recipient": {
+            "id": sender_id
+        },
+        "message": {
+            "text": "Please wait, we will reply to you as soon as possible"
+        }
+    }
+    response = requests.post(API, json=request_body).json()
+    return response
+
+
+host = os.environ.get("IP", "0.0.0.0")
+port = int(os.environ.get("PORT", 8000))
+app.run(host=host, port=port)
