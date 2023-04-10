@@ -260,6 +260,7 @@ import requests
 
 app = Flask(__name__)
 
+# PAGE_ACCESS_TOKEN = 'EAAGkB2Vgav0BAEuUgJb83Iks41bF3Hp5YBU2Y613GCxn4fYlx4gxjoENIyKg7jfZBtbs5DSuMJBjsuwBwtqBKunBFYhs2IQPHnVYI2gADDr2oaY2RqlOmJxmgqh8FL3Ic5spEbqc0o5iyaJtOqyPTZCVkCDMC9CkhumdhJy0OeDNBsVUr2Y3LEeZBwmssV3YyKyO2i41wZDZD'
 PAGE_ACCESS_TOKEN = os.environ["access"]
 # This is API key for facebook messenger.
 API = "https://graph.facebook.com/v13.0/me/messages?access_token="+PAGE_ACCESS_TOKEN
@@ -295,5 +296,5 @@ def fbwebhook():
 
 
 host = os.environ.get("IP", "0.0.0.0")
-port = int(os.environ.get("PORT", 8000))
+port = int(os.environ.get("PORT", 3000))
 app.run(host=host, port=port)
