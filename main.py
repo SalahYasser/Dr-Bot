@@ -533,8 +533,12 @@ def send_message(recipient_id, response):
     return "success"
 
 
-if __name__ == "__main__":
-    app.run(debug=False, port=3000)
+# if __name__ == "__main__":
+#     app.run(debug=False, port=3000)
+
+host = os.environ.get("IP", "0.0.0.0")
+port = int(os.environ.get("PORT", 3000))
+app.run(host=host, port=port)
 
 
 
