@@ -14,6 +14,6 @@ ENV access ${access}
 
 COPY . .
 
-EXPOSE 3000
+EXPOSE 8000
 
 CMD ["python3", "-m" , "main", "run", "--host=0.0.0.0"]

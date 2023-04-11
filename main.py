@@ -279,7 +279,7 @@ def fbwebhook():
     data = request.get_json()
     print(data)
     # Read messages from facebook messanger.
-    message = data['entry'][0]['messaging'][0]['message']['text']
+    # message = data['entry'][0]['messaging'][0]['message']['text']
     sender_id = data['entry'][0]['messaging'][0]['sender']['id']
     #print(message['text'])
     # if(message['text'] == 'hi'):
@@ -296,5 +296,5 @@ def fbwebhook():
 
 
 host = os.environ.get("IP", "0.0.0.0")
-port = int(os.environ.get("PORT", 3000))
+port = int(os.environ.get("PORT", 8000))
 app.run(host=host, port=port)
