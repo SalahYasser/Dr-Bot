@@ -23,7 +23,7 @@ app = Flask(__name__)
 ACCESS_TOKEN = os.environ["access"]
 # This is API key for facebook messenger.
 API = "https://graph.facebook.com/v13.0/me/messages?access_token="+ACCESS_TOKEN
-VERIFY_TOKEN = 'test'
+VERIFY_TOKEN = 'hello#100'
 bot = Bot(ACCESS_TOKEN)
 
 
