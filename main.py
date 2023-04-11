@@ -296,5 +296,5 @@ def fbwebhook():
 
 
 host = os.environ.get("IP", "0.0.0.0")
-port = int(os.environ.get("PORT", 8000))
+port = int(os.environ.get("PORT", 3000))
 app.run(host=host, port=port)
