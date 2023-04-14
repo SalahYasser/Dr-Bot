@@ -53,7 +53,7 @@ def receive_message():
                             # user_name=user_profile['first_name']
 
                             response_sent_text = ""
-                            conn = sqlite3.connect('all-data-shaksny.db')
+                            conn = sqlite3.connect('All-data.db')
                             cur1 = conn.execute("SELECT id from user")
                             patientList = cur1.fetchall()
                             conn.commit()
@@ -178,7 +178,7 @@ def all_conversation(response_sent_text, firstText, patientList, doctorsList, re
                     firstText, "Please I want/need to know information about") >= 0.6 or similar(firstText,
                                                                                                  "I do not know any information at and I want to know information about it please") >= 0.6 or similar(
                     firstText, "Could you tell me any information about?") >= 0.6:
-                co = sqlite3.connect('all-data-shaksny.db')
+                co = sqlite3.connect('All-data.db')
                 cu = co.execute("SELECT name FROM diseases")
                 co.commit()
                 count = 0
@@ -197,7 +197,7 @@ def all_conversation(response_sent_text, firstText, patientList, doctorsList, re
                 else:
                     send_message(recipient_id, "Sorry we don't have any information about this disease right now :( ")
             else:
-                connect = sqlite3.connect('all-data-shaksny.db')
+                connect = sqlite3.connect('All-data.db')
                 cursor3 = connect.execute("SELECT description FROM symptoms")
                 connect.commit()
                 description = cursor3.fetchall()
@@ -253,7 +253,7 @@ def all_conversation(response_sent_text, firstText, patientList, doctorsList, re
                                      "ok please wait a few minutes <3 I will tell you the disease now ^_^ ")
                         SymptomsIDs = []
                         Diseases_IDs = []
-                        ct = sqlite3.connect('all-data-shaksny.db')
+                        ct = sqlite3.connect('All-data.db')
                         for item in allSymptoms:
                             cur1 = ct.execute("SELECT symptoms_id FROM symptoms WHERE name= ?", (item,))
                             SymptomsIDs.append(cur1.fetchall())
@@ -308,7 +308,7 @@ def all_conversation(response_sent_text, firstText, patientList, doctorsList, re
                     send_message(item, "Please Doctor, there is a patient who wants to communicate with you")
             else:
                 send_message(recipient_id, "ok as you wish " + " <3 ")
-                scon = sqlite3.connect('all-data-shaksny.db')
+                scon = sqlite3.connect('All-data.db')
                 scon.execute("UPDATE user set conversation= ? where id= ?", ('finished', recipient_id))
                 scon.commit()
                 scon.close()
@@ -324,7 +324,7 @@ def all_conversation(response_sent_text, firstText, patientList, doctorsList, re
                 send_message(patID, firstText)
 
             if recipient_id == patID and "bye" in firstText:
-                scon = sqlite3.connect('all-data-shaksny.db')
+                scon = sqlite3.connect('All-data.db')
                 scon.execute("UPDATE user set conversation= ? where id= ?", ('finished', recipient_id))
                 scon.commit()
                 scon.close()
@@ -333,7 +333,7 @@ def all_conversation(response_sent_text, firstText, patientList, doctorsList, re
 
 
 def readfile():  # read from data base      #ok
-    db = sqlite3.connect('all-data-shaksny.db')
+    db = sqlite3.connect('All-data.db')
     cr = db.cursor()
 
     cr.execute('select * from diseases_symptoms_relation ')
@@ -500,7 +500,7 @@ def getNameofsymptoms(minsupport):
     two = generator(ls, len(ls), minsupport)
     # print two
 
-    db1 = sqlite3.connect('all-data-shaksny.db')
+    db1 = sqlite3.connect('All-data.db')
     cr1 = db1.cursor()
     lists = list()
     for i in range(0, len(two)):
