@@ -84,8 +84,8 @@ def receive_message():
                                         send_message(recipient_id,
                                                      "Please describe what do you feel in detail to help you ^_^ ")
                                     elif "doctor" in firstText or "Doctor" in firstText or "DOCTOR" in firstText or "DR" in firstText or "Dr" in firstText or "dr" in firstText:
-                                        cur4 = conn.execute("INSERT INTO doctor (id, specialty, spec ) VALUES (?,?,?)",
-                                                            (recipient_id, spec))
+                                        cur4 = conn.execute("INSERT INTO doctor (id, specialty) VALUES (?,?)",
+                                                            (recipient_id, "spec"))
                                         conn.commit()
                                         send_message(recipient_id, "welcome Dr " + " <3 ")
                                         send_message(recipient_id,
