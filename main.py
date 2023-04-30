@@ -85,12 +85,12 @@ def receive_message():
                                                      "Please describe what do you feel in detail to help you ^_^ ")
                                     elif "doctor" in firstText or "Doctor" in firstText or "DOCTOR" in firstText or "DR" in firstText or "Dr" in firstText or "dr" in firstText:
                                         cur4 = conn.execute("INSERT INTO doctor (id, specialty) VALUES (?,?)",
-                                                            (recipient_id, "spec"))
+                                                            (recipient_id, "null"))
                                         conn.commit()
                                         send_message(recipient_id, "welcome Dr " + " <3 ")
                                         send_message(recipient_id,
                                                      "Dr-Bot family is happy for joining you with us to help patients <3  we will send messages to you when patient need to communicate with you  ^_^ ")
-                                        send_message(spec, "what is your specialty " + " <3 ")
+                                        # send_message(spec, "what is your specialty " + " <3 ")
 
                                 else:
                                     if recipient_id in patList:
