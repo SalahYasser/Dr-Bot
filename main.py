@@ -78,7 +78,7 @@ def receive_message():
                                     if "patient" in firstText or "Patient" in firstText or "PATIENT" in firstText:
                                         cur3 = conn.execute(
                                             "INSERT INTO user (id, date, mess, conversation) VALUES (?,?,?,?)",
-                                            (recipient_id, timeee, firstText, "finished"))
+                                            (recipient_id, timeee, firstText, "unfinished"))
                                         conn.commit()
                                         send_message(recipient_id, "welcome " + " <3 ")
                                         send_message(recipient_id,
@@ -103,26 +103,26 @@ def receive_message():
                                                 "SELECT conversation from user where id=" + recipient_id)
                                             conn.commit()
                                             for item in cur5:
-                                                if item[0] == "finished":
+                                                if item[0] == "unfinished":
                                                     flag = True
                                             if flag == True:
                                                 cur7 = conn.execute(
-                                                    "SELECT mess from user where id=" + recipient_id + " and conversation='finished'")
+                                                    "SELECT mess from user where id=" + recipient_id + " and conversation='unfinished'")
                                                 messages = ""
                                                 for rows in cur7:
                                                     messages += rows[0]
                                                 messages += "," + firstText
                                                 conn.execute("UPDATE user set mess= ? where id= ? and conversation= ?",
-                                                             (messages, recipient_id, 'finished'))
+                                                             (messages, recipient_id, 'unfinished'))
                                                 conn.commit()
                                             else:
                                                 cur6 = conn.execute(
                                                     "INSERT INTO user (id, date, mess, conversation) VALUES (?,?,?,?)",
-                                                    (recipient_id, timeee, firstText, "finished"))
+                                                    (recipient_id, timeee, firstText, "unfinished"))
                                                 conn.commit()
 
                             cur8 = conn.execute(
-                                "SELECT mess from user where id=" + recipient_id + " and conversation='finished'")
+                                "SELECT mess from user where id=" + recipient_id + " and conversation='unfinished'")
                             for item in cur8:
                                 response_sent_text += item[0]
                             conn.commit()
