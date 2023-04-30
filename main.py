@@ -143,7 +143,7 @@ def similar(a, b):
 def all_conversation(response_sent_text, firstText, patientList, doctorsList, recipient_id):
     words = ["No", "no", "NO", "Yes", "YES", "yes", "patient", "Patient", "PATIENT", "DOCTOR", "doctor", "Doctor", "dr",
              "Dr", "DR", "Welcome", "welcome", "Hello", "hello", "Hi", "hi", "Hey", "hey", "Good Afternoon",
-             "good afternoon", "good morning", "Good Morning", "Good Evening", "good evening", "Good Night", "good night"]
+             "good afternoon", "good morning", "Good Morning", "Good Evening", "good evening"]
     global countt
     if countt == 0:
         if recipient_id not in patientList:
@@ -576,7 +576,8 @@ app.run(host=host, port=port)
 #     return response
 #
 #
+#
+#
 # host = os.environ.get("IP", "0.0.0.0")
 # port = int(os.environ.get("PORT", 3000))
 # app.run(host=host, port=port)
-
