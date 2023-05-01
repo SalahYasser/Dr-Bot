@@ -90,7 +90,7 @@ def receive_message():
                                         send_message(recipient_id, "welcome Dr " + " <3 ")
                                         send_message(recipient_id,
                                                      "Dr-Bot family is happy for joining you with us to help patients <3  we will send messages to you when patient need to communicate with you  ^_^ ")
-                                        send_message(specialty, "what is your specialty" + " <3 ")
+                                        send_message(specialty, "what is your specialty" + " <3 " )
 
                                 else:
                                     if recipient_id in patList:
