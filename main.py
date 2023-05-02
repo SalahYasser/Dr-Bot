@@ -89,7 +89,7 @@ def receive_message():
                                         conn.commit()
                                         send_message(recipient_id, "welcome Dr " + " <3 ")
                                         send_message(recipient_id,
-                                                     "Dr-Bot family is happy for joining you with us to help patients <3  we will send messages to you when patient need to communicate with you  ^_^ ")
+                                                     "Al-Tabeeb.Bot family is happy for joining you with us to help patients <3  we will send messages to you when patient need to communicate with you  ^_^ ")
 
                                 else:
                                     if recipient_id in patList:
