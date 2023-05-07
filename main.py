@@ -158,10 +158,11 @@ def all_conversation(response_sent_text, firstText, patientList, doctorsList, re
                 # c ur9 = conn.execute(
                 #     "UPDATE doctor SET speciality = " + firstText +  " WHERE id = " + recipient_id
                 #     )
-                # cur9 = conn.execute(
-                #     "UPDATE doctor SET specialty = 'oncology' WHERE id = " + recipient_id
-                #     )
-                # conn.commit()
+                cur9 = conn.execute(
+                    # "UPDATE doctor SET specialty = 'oncology' WHERE id = " + recipient_id
+                    "SELECT * FROM doctor WHERE id = " + recipient_id
+                    )
+                conn.commit()
                 # conn.close()
                 send_message(recipient_id, "sepciality: " + firstText)
             # elif "dev" in firstText:
