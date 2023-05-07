@@ -155,12 +155,12 @@ def all_conversation(response_sent_text, firstText, patientList, doctorsList, re
             elif "good bye" in firstText or "Good Bye" in firstText or "Good bye" in firstText or "bye" in firstText or "Bye" in firstText:
                 send_message(recipient_id, firstText + " Dr " + " ^_^ ")
             elif "oncology" in firstText:
-                # cur9 = conn.execute(
-                #     "UPDATE doctor SET speciality = " + firstText +  " WHERE id = " + recipient_id
-                #     )
-                # conn.commit()
-                # conn.close()
-                send_message(recipient_id, "sepciality" + firstText)
+                cur9 = conn.execute(
+                    "UPDATE doctor SET speciality = " + firstText +  " WHERE id = " + recipient_id
+                    )
+                conn.commit()
+                conn.close()
+                send_message(recipient_id, "sepciality: " + firstText)
             # elif "dev" in firstText:
             #     cur10 = conn.execute(
             #         "SELECT * FROM doctor WHERE id =" + recipient_id
