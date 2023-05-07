@@ -158,7 +158,7 @@ def all_conversation(response_sent_text, firstText, patientList, doctorsList, re
             elif "oncology" in firstText:
                 co = sqlite3.connect('All-data.db')
                 cur9 = co.execute(
-                    "UPDATE doctor SET specialty = " + firstText + " WHERE id = " + recipient_id
+                    "UPDATE doctor SET specialty = '" + firstText + "' WHERE id = " + recipient_id
                     # "SELECT * FROM doctor WHERE id=" + recipient_id
                     )
                 co.commit()
