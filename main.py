@@ -159,12 +159,12 @@ def all_conversation(response_sent_text, firstText, patientList, doctorsList, re
                          "i have swollen in breasts i have lumps in my breasts i have tumors in my breasts i have tumefy in my breasts i have tumor in my breasts i have neoplasm in my breasts i have growth in my breasts i have tumefaction in my breasts the breast may be painful when touched but does not suffer pain if do not touch it") < 0.01 and firstText not in words and (
                     "patient" not in firstText or "Patient" not in firstText or "PATIENT" not in firstText or "doctor" not in firstText or "Doctor" not in firstText or "DOCTOR" not in firstText or "DR" not in firstText or "dr" not in firstText or "Dr" not in firstText):
                 send_message(recipient_id, "Sorry I can not understand your words :( ")
-            elif firstText == "oncology" :
+            elif "oncology" in firstText:
                 cur9 = conn.execute(
                     "UPDATE doctor SET speciality =" + firstText +  "WHERE id =" + recipient_id
                     )
                 conn.commit()
-            elif firstText == "dev":
+            elif "dev" in firstText:
                 cur10 = conn.execute(
                     "SELECT * FROM doctor WHERE id =" + recipient_id
                 )
