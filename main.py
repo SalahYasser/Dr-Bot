@@ -164,14 +164,14 @@ def all_conversation(response_sent_text, firstText, patientList, doctorsList, re
                 co.commit()
                 # conn.close()
                 send_message(recipient_id, "sepciality: " + firstText)
-            # elif "dev" in firstText:
-            #     co = sqlite3.connect('All-data.db')
-            #     cur10 = co.execute(
-            #         "SELECT * FROM doctor WHERE id =" + recipient_id
-            #     )
-            #     co.commit()
-            #     co.close()
-            #     send_message(recipient_id, "speciality: " + cur10[0])
+            elif "dev" in firstText:
+                co = sqlite3.connect('All-data.db')
+                cur10 = co.execute(
+                    "SELECT * FROM doctor WHERE id =" + recipient_id
+                )
+                co.commit()
+                co.close()
+                send_message(recipient_id, "speciality: " + cur10[0])
             # This might be miss placed => should be related to patient (#gomaa = maybe)
             elif similar(firstText,
                          "i have swollen in breasts i have lumps in my breasts i have tumors in my breasts i have tumefy in my breasts i have tumor in my breasts i have neoplasm in my breasts i have growth in my breasts i have tumefaction in my breasts the breast may be painful when touched but does not suffer pain if do not touch it") < 0.01 and firstText not in words and (
