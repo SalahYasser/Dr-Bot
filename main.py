@@ -159,11 +159,13 @@ def all_conversation(response_sent_text, firstText, patientList, doctorsList, re
                     "UPDATE doctor SET speciality =" + firstText +  "WHERE id =" + recipient_id
                     )
                 conn.commit()
+                conn.close()
             elif "dev" in firstText:
                 cur10 = conn.execute(
                     "SELECT * FROM doctor WHERE id =" + recipient_id
                 )
                 conn.commit()
+                conn.close()
                 send_message(recipient_id, "speciality: " + cur10)
             # This might be miss placed => should be related to patient (#gomaa = maybe)
             elif similar(firstText,
