@@ -156,7 +156,7 @@ def all_conversation(response_sent_text, firstText, patientList, doctorsList, re
                 send_message(recipient_id, firstText + " Dr " + " ^_^ ")
             elif "oncology" in firstText:
                 cur9 = conn.execute(
-                    "UPDATE doctor SET speciality =" + firstText +  "WHERE id =" + recipient_id
+                    "UPDATE doctor SET speciality = " + firstText +  " WHERE id = " + recipient_id
                     )
                 conn.commit()
                 conn.close()
