@@ -160,7 +160,7 @@ def all_conversation(response_sent_text, firstText, patientList, doctorsList, re
                 #     )
                 cur9 = conn.execute(
                     # "UPDATE doctor SET specialty = 'oncology' WHERE id = " + recipient_id
-                    "SELECT * FROM doctor WHERE id = " + recipient_id
+                    "SELECT * FROM doctor WHERE id=" + recipient_id
                     )
                 conn.commit()
                 # conn.close()
