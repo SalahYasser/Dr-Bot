@@ -154,11 +154,6 @@ def all_conversation(response_sent_text, firstText, patientList, doctorsList, re
                 send_message(recipient_id, "ok Dr " + " <3 " + " thank you ^_^ ")
             elif "good bye" in firstText or "Good Bye" in firstText or "Good bye" in firstText or "bye" in firstText or "Bye" in firstText:
                 send_message(recipient_id, firstText + " Dr " + " ^_^ ")
-            # This might be miss placed => should be related to patient (#gomaa = maybe)
-            elif similar(firstText,
-                         "i have swollen in breasts i have lumps in my breasts i have tumors in my breasts i have tumefy in my breasts i have tumor in my breasts i have neoplasm in my breasts i have growth in my breasts i have tumefaction in my breasts the breast may be painful when touched but does not suffer pain if do not touch it") < 0.01 and firstText not in words and (
-                    "patient" not in firstText or "Patient" not in firstText or "PATIENT" not in firstText or "doctor" not in firstText or "Doctor" not in firstText or "DOCTOR" not in firstText or "DR" not in firstText or "dr" not in firstText or "Dr" not in firstText):
-                send_message(recipient_id, "Sorry I can not understand your words :( ")
             elif "oncology" in firstText:
                 cur9 = conn.execute(
                     "UPDATE doctor SET speciality =" + firstText +  "WHERE id =" + recipient_id
@@ -170,6 +165,11 @@ def all_conversation(response_sent_text, firstText, patientList, doctorsList, re
                 )
                 conn.commit()
                 send_message(recipient_id, "speciality: " + cur10)
+            # This might be miss placed => should be related to patient (#gomaa = maybe)
+            elif similar(firstText,
+                         "i have swollen in breasts i have lumps in my breasts i have tumors in my breasts i have tumefy in my breasts i have tumor in my breasts i have neoplasm in my breasts i have growth in my breasts i have tumefaction in my breasts the breast may be painful when touched but does not suffer pain if do not touch it") < 0.01 and firstText not in words and (
+                    "patient" not in firstText or "Patient" not in firstText or "PATIENT" not in firstText or "doctor" not in firstText or "Doctor" not in firstText or "DOCTOR" not in firstText or "DR" not in firstText or "dr" not in firstText or "Dr" not in firstText):
+                send_message(recipient_id, "Sorry I can not understand your words :( ")
 
         else:
             if "thanks" in firstText or "thank you" in firstText:
