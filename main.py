@@ -88,9 +88,9 @@ def receive_message():
                                                             (recipient_id, "None"))
                                         conn.commit()
                                         send_message(recipient_id, "welcome Dr " + " <3 ")
-                                        send_message(recipient_id, "Salah " + " <3 ")
                                         send_message(recipient_id,
                                                      "Al-Tabeeb.Bot family is happy for joining you with us to help patients <3  we will send messages to you when patient need to communicate with you  ^_^ ")
+                                        send_message(recipient_id, "What is your speciatly? " + " <3 ")
 
                                 else:
                                     if recipient_id in patList:
