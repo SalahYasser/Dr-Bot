@@ -145,6 +145,9 @@ def all_conversation(response_sent_text, firstText, patientList, doctorsList, re
     words = ["No", "no", "NO", "Yes", "YES", "yes", "patient", "Patient", "PATIENT", "DOCTOR", "doctor", "Doctor", "dr",
              "Dr", "DR", "Welcome", "welcome", "Hello", "hello", "Hi", "hi", "Hey", "hey", "Good Afternoon",
              "good afternoon", "good morning", "Good Morning", "Good Evening", "good evening"]
+
+    # gomaa
+    co = sqlite3.connect('All-data.db')
     global countt
     if countt == 0:
         if recipient_id not in patientList:
@@ -155,24 +158,20 @@ def all_conversation(response_sent_text, firstText, patientList, doctorsList, re
             elif "good bye" in firstText or "Good Bye" in firstText or "Good bye" in firstText or "bye" in firstText or "Bye" in firstText:
                 send_message(recipient_id, firstText + " Dr " + " ^_^ ")
             elif "oncology" in firstText:
-                co = sqlite3.connect('All-data.db')
-                # c ur9 = conn.execute(
-                #     "UPDATE doctor SET speciality =" + firstText +  " WHERE id = " + recipient_id
-                #     )
                 cur9 = co.execute(
-                    "UPDATE doctor SET specialty = 'oncology' WHERE id = " + recipient_id
+                    "UPDATE doctor SET specialty = " + firstText + " WHERE id = " + recipient_id
                     # "SELECT * FROM doctor WHERE id=" + recipient_id
                     )
                 co.commit()
                 # conn.close()
                 send_message(recipient_id, "sepciality: " + firstText)
-            # elif "dev" in firstText:
-            #     cur10 = conn.execute(
-            #         "SELECT * FROM doctor WHERE id =" + recipient_id
-            #     )
-            #     conn.commit()
-            #     conn.close()
-            #     send_message(recipient_id, "speciality: " + cur10)
+            elif "dev" in firstText:
+                cur10 = co.execute(
+                    "SELECT * FROM doctor WHERE id =" + recipient_id
+                )
+                co.commit()
+                co.close()
+                send_message(recipient_id, "speciality: " + cur10[0])
             # This might be miss placed => should be related to patient (#gomaa = maybe)
             elif similar(firstText,
                          "i have swollen in breasts i have lumps in my breasts i have tumors in my breasts i have tumefy in my breasts i have tumor in my breasts i have neoplasm in my breasts i have growth in my breasts i have tumefaction in my breasts the breast may be painful when touched but does not suffer pain if do not touch it") < 0.01 and firstText not in words and (
