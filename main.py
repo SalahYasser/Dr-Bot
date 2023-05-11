@@ -162,7 +162,7 @@ def all_conversation(response_sent_text, firstText, patientList, doctorsList, re
                     # "SELECT * FROM doctor WHERE id=" + recipient_id
                     )
                 co.commit()
-                # conn.close()
+                # conn.close() *
                 send_message(recipient_id, "sepciality: " + firstText)
             elif "dev" in firstText:
                 co = sqlite3.connect('All-data.db')
