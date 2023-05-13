@@ -504,7 +504,7 @@ def generator(mylist, lenght, minsupport):
                     #  print len(finall)
                     return finall
                 elif finall != achieve_min_support:
-                    #  print "kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk"
+                    #  print "kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk"
                     finall = list(achieve_min_support)
                     # listof2 = list(achieve_min_support)
                     length = len(achieve_min_support)
