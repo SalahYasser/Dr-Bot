@@ -17,7 +17,7 @@ allSymptoms = []
 initialSymptoms = []
 
 app = Flask(__name__)
-# ACCESS_TOKEN = 'EAAGkB2Vgav0BAEuUgJb83Iks41bF3Hp5YBU2Y613GCxn4fYlx4gxjoENIyKg7jfZBtbs5DSuMJBjsuwBwtqBKunBFYhs2IQPHnVYI2gADDr2oaY2RqlOmJxmgqh8FL3Ic5spEbqc0o5iyaJtOqyPTZCVkCDMC9CkhumdhJy0OeDNBsVUr2Y3LEeZBwmssV3YyKyO2i41wZDZD'
+# ACCESS_TOKEN = 'EAAGkB2Vgav0BAGwhFWCu9QOLxtR57uQF7xngQJx2pvk2OMH5SqwUIZCBx68whZB6eq8Vvbfloc6x655LBAkrVZCJIGU03AV5LE1AkM6TXZBC5ZAQcwqjT8fOw4VSKhMy40GXIScnX0BLq5Gvw4LFM3rCCcLbqUOfSnbzZArQZBBiaIimAhvljmoFX2OOy6RBVWnqIitd7uPdAZDZD'
 ACCESS_TOKEN = os.environ["access"]
 # This is API key for facebook messenger.
 API = "https://graph.facebook.com/v13.0/me/messages?access_token="+ACCESS_TOKEN
@@ -57,13 +57,14 @@ def receive_message():
                             cur1 = conn.execute("SELECT id from user")
                             patientList = cur1.fetchall()
                             conn.commit()
-                            cur2 = conn.execute("SELECT id from doctor")
+                            cur2 = conn.execute("SELECT id , specialty from doctor")
                             doctorsList = cur2.fetchall()
 
+                            print(doctorsList)
                             conn.commit()
                             docList = []
                             for item in doctorsList:
-                                docList.append(item[0])
+                                docList.append(item)
                             patList = []
                             for item in patientList:
                                 patList.append(item[0])
@@ -90,7 +91,7 @@ def receive_message():
                                         send_message(recipient_id, "welcome Dr " + " <3 ")
                                         send_message(recipient_id,
                                                      "Al-Tabeeb.Bot family is happy for joining you with us to help patients <3  we will send messages to you when patient need to communicate with you  ^_^ ")
-                                        send_message(recipient_id, "What is your speciatly? ")
+                                        send_message(recipient_id, "What is your specialty? ")
 
                                 else:
                                     if recipient_id in patList:
@@ -326,7 +327,9 @@ def all_conversation(response_sent_text, firstText, patientList, doctorsList, re
         if countt == 1:
             if "yes" in firstText or "ok" in firstText or "agree" in firstText or "agreement" in firstText or "i wish" in firstText or "i want" in firstText:
                 for item in doctorsList:
-                    send_message(item, "Please Doctor, there is a patient who wants to communicate with you")
+                    if item[1] == str( cur4.fetchall()[0][0] ) :
+                          send_message(item[0], "Please Doctor, there is a patient who wants to communicate with you")
+                send_message(recipient_id, "we are sorry")
             else:
                 send_message(recipient_id, "ok as you wish " + " <3 ")
                 scon = sqlite3.connect('All-data.db')
