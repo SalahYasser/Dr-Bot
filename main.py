@@ -17,7 +17,7 @@ allSymptoms = []
 initialSymptoms = []
 
 app = Flask(__name__)
-# ACCESS_TOKEN = 'EAAGkB2Vgav0BAEuUgJb83Iks41bF3Hp5YBU2Y613GCxn4fYlx4gxjoENIyKg7jfZBtbs5DSuMJBjsuwBwtqBKunBFYhs2IQPHnVYI2gADDr2oaY2RqlOmJxmgqh8FL3Ic5spEbqc0o5iyaJtOqyPTZCVkCDMC9CkhumdhJy0OeDNBsVUr2Y3LEeZBwmssV3YyKyO2i41wZDZD'
+# ACCESS_TOKEN = 'EAAGkB2Vgav0BAOsUOoNH3ZAXsVi6rgdtcHisDSsJ98f3lmZALRHqJZBFYX6il0ppWUp4tGHWWUbajWnI2wWZCfGTlqMApcVLAxKlTv6eEgsRLi7ygABITNf90QUmQ9OyA6eZCby3cM6pRH9zcoqvknljH1GcVoyZCQvuItLqZBib6rZBqLmYzwccWZCnsIfTHxINtrjoz5mZC3JQZDZD'
 ACCESS_TOKEN = os.environ["access"]
 # This is API key for facebook messenger.
 API = "https://graph.facebook.com/v13.0/me/messages?access_token="+ACCESS_TOKEN
@@ -346,7 +346,7 @@ def all_conversation(response_sent_text, firstText, patientList, doctorsList, re
 
             if recipient_id == patID and "bye" in firstText:
                 scon = sqlite3.connect('All-data.db')
-                scon.execute("UPDATE user set conversation= ? where id= ?", ('finished', recipient_id))
+                scon.execute("UPDATE user set conversation= ? where id= ?", ('unfinished', recipient_id))
                 scon.commit()
                 scon.close()
 
