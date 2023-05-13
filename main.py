@@ -353,7 +353,7 @@ def all_conversation(response_sent_text, firstText, patientList, doctorsList, re
     return "ok"
 
 
-def readfile():  # read from data base      #ok
+def readfile():  # read from data base       #ok
     db = sqlite3.connect('All-data.db')
     cr = db.cursor()
 
