@@ -346,7 +346,7 @@ def all_conversation(response_sent_text, firstText, patientList, doctorsList, re
 
             if recipient_id == patID and "bye" in firstText:
                 scon = sqlite3.connect('All-data.db')
-                scon.execute("UPDATE user set conversation= ? where id= ?", ('unfinished', recipient_id))
+                scon.execute("UPDATE user set conversation= ? where id= ?", ('finished', recipient_id))
                 scon.commit()
                 scon.close()
 
