@@ -17,7 +17,7 @@ allSymptoms = []
 initialSymptoms = []
 
 app = Flask(__name__)
-# ACCESS_TOKEN = 'EAAGkB2Vgav0BABfPYg6fKWaVheLdup5XOs3Fg4tacwfyxQCVaYY1507fxZAM5NLH8MTmfI1rtzdtAyYwsCiRFGdGsP8X9VzwPxtXloZALSTic3Rf3qnTTZAxOQQ8ZBcZBf33DZB3KSXaAZBZCvd5wKqjQaapQ6zO1HBwMygRJzShyO9UnBWcQ6PTx0Bcm13CbMDZAZAJQCi4krJgZDZD'
+# ACCESS_TOKEN = 'EAAGkB2Vgav0BAGxYf5wDJZCobrfgKRNZAVFnsN0r7mDJtowdZBh4DtFkCT5DEIaEpnFyAWD4W11qbw2Q69k25vVFoXVjLix9V45mZCDo0CKrvqfjyWGO6hb2bjKNk0GAdVyHhYkxcXq6blSY0HzC5rCyjBUkZBgCqPZAzEKjL2Y0KDZAhMc4hhGslCWMSYJYD2ZAKJS8HuiOSAZDZD'
 ACCESS_TOKEN = os.environ["access"]
 # This is API key for facebook messenger
 API = "https://graph.facebook.com/v13.0/me/messages?access_token="+ACCESS_TOKEN
@@ -567,7 +567,6 @@ app.run(host=host, port=port)
 
 
 # ---------------------------------------------------------------------------------------------
-
 
 
 
