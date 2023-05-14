@@ -16,4 +16,6 @@ COPY . .
 
 EXPOSE 3000
 
+EXPOSE 8191
+
 CMD ["python3", "-m" , "main", "run", "--host=0.0.0.0"]
