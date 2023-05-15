@@ -8,7 +8,7 @@ import sqlite3
 from sqlite3 import Error
 from difflib import SequenceMatcher
 import difflib
-import requests
+# import requests
 countt = 0
 docID = 0
 patID = 0
@@ -17,7 +17,7 @@ allSymptoms = []
 initialSymptoms = []
 
 app = Flask(__name__)
-# ACCESS_TOKEN = 'EAAGkB2Vgav0BAIdtuxp9sF81AS97jRlsfyyZAJS2oYx9J3tHL9kwFlTLVRZBOXrwWGckLGHZBNQ2wpQOZCPw2MoZBK82Q1uOp35PPvLoo1F5daA7vRZABTrqz35vgpOFBfYeS3OjVdvSrjt10QlIaCa8aZCeSshqxVUC59oQt2WzXt0etYI9ZCofbOpXxZCf80y0njo2sGYIklgZDZD'
+# ACCESS_TOKEN = 'EAAuZBDebZBVHABAExM8A97lKNVdfZBx6txqlnfMqUIHreM4mc5KwLJI7fqyOhZBLHC1GF69iZAiJ12wgzf1k6igm5YMhrA8ZA2NQjbIDmM1EJTaZAqadvcn5eunOXWp0lINWgZCN19DLXf0kbSpL2gnzR7ypIGKZBQIWCcUDqdybS0gomsAsYCZC2MApuaGoCKGKL2qNUdMrEFxwZDZD'
 ACCESS_TOKEN = os.environ["access"]
 # This is API key for facebook messenger
 API = "https://graph.facebook.com/v13.0/me/messages?access_token="+ACCESS_TOKEN
