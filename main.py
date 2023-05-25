@@ -17,7 +17,7 @@ allSymptoms = []
 initialSymptoms = []
 
 app = Flask(__name__)
-# ACCESS_TOKEN = 'EAAw98iLZBnPgBAJtOjKcnW8k4VLCF6QykENRQagTeCnaECpFIjkXAZCHD0hK1UXnf7h9UWW3aD8uXeB3bSuZBCtIxT34vaWwejI0UXrxM7bDVzOgqL2UZB1kKwENAw74I31PkgaXLyHSwBtrIKfKd0xA8ISnCzpJsY4F944VP5bixoBEQvNLmu3E559uhAPKoIhyuZAFKgAZDZD'
+
 ACCESS_TOKEN = os.environ["access"]
 # This is API key for facebook messenger.
 API = "https://graph.facebook.com/v13.0/me/messages?access_token="+ACCESS_TOKEN
@@ -481,7 +481,7 @@ def generator(mylist, lenght, minsupport):
             # print out
             mylist = out
             finall = out
-            ############################################################################################################
+            ###########################################################################################################
         else:
             # uniqs = [1, 2, 3, 4]
             while True:
