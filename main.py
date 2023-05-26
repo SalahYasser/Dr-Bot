@@ -156,7 +156,7 @@ def all_conversation(response_sent_text, firstText, patientList, doctorsList, re
                 send_message(recipient_id, "ok Dr " + " <3 " + " thank you ^_^ ")
             elif "good bye" in firstText or "Good Bye" in firstText or "Good bye" in firstText or "bye" in firstText or "Bye" in firstText:
                 send_message(recipient_id, firstText + " Dr " + " ^_^ ")
-            elif "oncology" in firstText:
+            elif "oncology" in firstText or "Eye Allergy" in firstText:
                 co = sqlite3.connect('All-data.db')
                 cur9 = co.execute(
                     "UPDATE doctor SET specialty = '" + firstText + "' WHERE id = " + recipient_id
