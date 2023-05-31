@@ -570,7 +570,6 @@ app.run(host=host, port=port)
 
 
 
-
 # @app.route("/", methods=['GET'])
 # def fbverify():
 #     if request.args.get("hub.mode") == "subscribe" and request.args.get("hub.challenge"):
